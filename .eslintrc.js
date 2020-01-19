@@ -7,6 +7,14 @@ module.exports = {
   plugins: [
     '@typescript-eslint',
   ],
+  settings: {
+    "import/resolver": {
+      node: {
+        paths: ['src'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx']
+      }
+    }
+  },
   extends: [
     'eslint:recommended',
     'plugin:import/errors',
