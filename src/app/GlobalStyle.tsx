@@ -2,6 +2,8 @@ import { createGlobalStyle } from 'styled-components'
 
 export const redColor = '#ee4b38'
 
+export const lightGreyColor = '#808080'
+
 export default createGlobalStyle`
   body {
     margin: 0;

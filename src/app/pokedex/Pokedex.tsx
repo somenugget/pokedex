@@ -1,8 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import PokemonSearch from './components/PokemonSearch'
+
 const Pokedex = () => {
-  return <div>pokedex</div>
+  return (
+    <div>
+      <PokemonSearch />
+    </div>
+  )
 }
 
 Pokedex.propTypes = {}
