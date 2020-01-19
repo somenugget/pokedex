@@ -1,16 +1,15 @@
 import { init } from '@rematch/core'
 
 import pokemons from './models/pokemons'
-import getAllPokemons from './utils/getAllPokemons'
+import pokemonPreview from './pokedex/models/pokemonPreview'
 
 const store = init({
   models: {
     pokemons,
+    pokemonPreview,
   },
 })
 
-getAllPokemons().then((pokemons) => {
-  store.dispatch({ type: 'pokemons/setPokemons', payload: pokemons })
-})
+store.dispatch.pokemons.loadPokemons()
 
 export default store

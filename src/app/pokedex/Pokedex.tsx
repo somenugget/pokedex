@@ -1,12 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import PokemonSearch from './components/PokemonSearch'
+import { lightPinkColor } from 'app/GlobalStyle'
 
-const Pokedex = () => {
+import PokemonSearch from './components/PokemonSearch'
+import PokemonPreview from './components/PokemonPreview'
+
+const Pokedex = (props: any) => {
   return (
-    <div>
+    <div className={props.className}>
       <PokemonSearch />
+      <br />
+      <PokemonPreview />
     </div>
   )
 }
@@ -14,5 +19,7 @@ const Pokedex = () => {
 Pokedex.propTypes = {}
 
 export default styled(Pokedex)`
-  border: 1px solid #000;
+  background: ${lightPinkColor};
+  border-radius: 0.5rem;
+  padding: 1rem;
 `
