@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import GlobalStyle, { redColor } from './GlobalStyle'
 import Pokedex from './pokedex/Pokedex'
-import PokemonLineup from './pokemonLineup/PokemonLineup'
+import PokemonLineup from './pokemonLineup/components/PokemonLineup'
 import PokemonData from './pokemonData/PokemonData'
 
 const App = () => {
@@ -28,13 +28,14 @@ const AppContainer = styled.div`
   border-radius: 20px;
   height: 90vh;
   display: flex;
+  justify-content: space-between;
   width: 90%;
   margin: 5vh auto 0;
   padding: 2%;
 `
 
 const AppSection = styled.section`
-  width: 50%;
+  width: 49%;
 `
 
 export default App
