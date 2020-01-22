@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { Pokemon } from 'app/models/pokemons'
-import { lightPinkColor } from 'app/GlobalStyle'
+import { lightPinkColor, smallRadius } from 'app/GlobalStyle'
 
 import PokemonLineupItem from './PokemonLineupItem'
 
@@ -35,15 +35,14 @@ const PokemonLineupHeader = styled.h2`
 `
 
 const PokemonLineupContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 32% 32% 32%;
+  grid-column-gap: 2%;
+  grid-row-gap: 2%;
 `
 
 export default styled(PokemonLineup)`
   background: ${lightPinkColor};
-  border-radius: 0.5rem;
+  border-radius: ${smallRadius};
   padding: 0.75rem;
-
-  ${PokemonLineupItem} {
-    width: 30%;
-  }
 `

@@ -15,7 +15,12 @@ const AddToLineupButton = ({
   isInLineup,
 }: AddToLineupButtonProps) => {
   if (isInLineup) {
-    return <span>added to lineup 👌🏻</span>
+    return (
+      <span>
+        added to lineup
+        <span role="img">👌🏻</span>
+      </span>
+    )
   }
 
   return <button onClick={addToLineup}>Add to lineup</button>

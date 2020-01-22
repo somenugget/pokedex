@@ -1,24 +1,13 @@
-import React from 'react'
-import styled from 'styled-components'
+import { connect } from 'react-redux'
 
-import { Pokemon } from 'app/models/pokemons'
+import PokemonLineupItem from './PokemonLineupItem'
 
-type PokemonLineupItemProps = {
-  pokemon: Pokemon
-  className?: string
-}
+const mapState = (state: any, { pokemon }: any) => ({
+  isSelected: state.pokemonData.selectedPokemon === pokemon.name,
+})
 
-const PokemonLineupItem = ({ pokemon, className }: PokemonLineupItemProps) => {
-  return (
-    <div className={className}>
-      <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-      <h5>{pokemon.name}</h5>
-    </div>
-  )
-}
+const mapDispatch = (dispatch: any) => ({
+  selectPokemon: dispatch.pokemonData.selectPokemon,
+})
 
-export default styled(PokemonLineupItem)`
-  width: 30%;
-  border: 1px solid #000;
-  height: 5rem;
-`
+export default connect(mapState, mapDispatch)(PokemonLineupItem)

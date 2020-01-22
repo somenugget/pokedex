@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import GlobalStyle, { redColor } from './GlobalStyle'
 import Pokedex from './pokedex/Pokedex'
 import PokemonLineup from './pokemonLineup/components/PokemonLineup'
-import PokemonData from './pokemonData/PokemonData'
+import PokemonData from './pokemonData/components/PokemonData'
 
 const App = () => {
   return (
@@ -36,6 +36,10 @@ const AppContainer = styled.div`
 
 const AppSection = styled.section`
   width: 49%;
+
+  & > * {
+    margin-bottom: 1rem;
+  }
 `
 
 export default App

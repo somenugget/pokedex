@@ -4,10 +4,20 @@ import getAllPokemons from 'app/utils/getAllPokemons'
 
 import getPokemon from '../utils/getPokemon'
 
+export type Ability = {
+  name: string
+}
+
+export type ConfiguredAbility = {
+  ability: Ability
+  is_hidden: boolean
+}
+
 export type Pokemon = {
   id: number
   name: string
   sprites: Record<'front_default', string>
+  abilities: ConfiguredAbility[]
 }
 
 type ListPokemon = {

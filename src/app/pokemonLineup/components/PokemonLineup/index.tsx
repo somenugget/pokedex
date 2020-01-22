@@ -10,8 +10,10 @@ const mapState = ({ pokemonLineup, pokemons }: any) => {
   }
 }
 
-const mapDispatch = () => {
-  return {}
+const mapDispatch = (dispatch: any) => {
+  return {
+    selectPokemon: dispatch.pokemonData.selectPokemon,
+  }
 }
 
 export default connect(mapState, mapDispatch)(PokemonLineup)

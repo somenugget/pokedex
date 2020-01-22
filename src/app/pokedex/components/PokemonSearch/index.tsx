@@ -1,45 +1,7 @@
-import React, { ReactElement, useMemo } from 'react'
-import Select, { ActionMeta, OptionTypeBase, ValueType } from 'react-select'
+import React from 'react'
 import { connect } from 'react-redux'
 
-import MenuList from './MenuList'
-
-type Pokemon = {
-  name: string
-}
-
-type PokemonSearchProps = {
-  pokemons: Array<Pokemon>
-  setPreviewPokemon: (
-    value: ValueType<OptionTypeBase>,
-    actionMeta: ActionMeta
-  ) => void
-}
-
-const components = { MenuList }
-
-const PokemonSearch = ({
-  pokemons,
-  setPreviewPokemon,
-}: PokemonSearchProps): ReactElement => {
-  const options = useMemo(
-    () =>
-      pokemons.map(({ name }: Pokemon) => ({
-        label: name,
-        value: name,
-      })),
-    [pokemons.length]
-  )
-
-  return (
-    <Select
-      options={options}
-      components={components}
-      onChange={setPreviewPokemon}
-      placeholder="Find a pokemon!"
-    />
-  )
-}
+import PokemonSearch from './PokemonSearch'
 
 const mapState = (state: any) => ({
   pokemons: state.pokemons.list,
