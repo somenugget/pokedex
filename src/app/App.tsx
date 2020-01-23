@@ -26,12 +26,12 @@ const App = () => {
 const AppContainer = styled.div`
   background: ${redColor};
   border-radius: 20px;
-  height: 90vh;
   display: flex;
   justify-content: space-between;
-  width: 90%;
-  margin: 5vh auto 0;
   padding: 2%;
+  min-height: 90vh;
+  margin: 5vh auto 0;
+  width: 90%;
 `
 
 const AppSection = styled.section`

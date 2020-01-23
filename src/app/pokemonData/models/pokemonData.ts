@@ -43,7 +43,7 @@ export default {
       state: PokemonDataStore,
       pokemonName: string
     ): PokemonDataStore {
-      if (!state.selectedPokemon) {
+      if (!(state.selectedPokemon && pokemonName)) {
         return state
       }
 

@@ -1,6 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
 
-export const redColor = '#FFF' // '#ee4b38'
+export const redColor = '#ee4b38'
+
+export const darkRedColor = '#921a0c'
 
 export const lightPinkColor = '#eee1df'
 

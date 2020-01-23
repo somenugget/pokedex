@@ -41,7 +41,7 @@ const PokemonPreview = ({
 
   return (
     <div className={`${className} ${pokemonOrImageIsLoading && 'is-loading'}`}>
-      <div className="loading-message">loading</div>
+      <div className="loading-message">Loading...</div>
 
       <div className="pokemon-preview">
         {pokemon.sprites.front_default && (
@@ -54,7 +54,7 @@ const PokemonPreview = ({
 
         {pokemon.name && (
           <>
-            <h3>{pokemon.name}</h3>
+            <h3 className="pokemon-name">{pokemon.name}</h3>
 
             <AddToLineupButton pokemonName={pokemon.name} />
           </>
@@ -65,7 +65,7 @@ const PokemonPreview = ({
 }
 
 export default styled(PokemonPreview)`
-  padding: 1rem;
+  margin-top: 1rem;
 
   .loading-message {
     display: none;
@@ -78,6 +78,18 @@ export default styled(PokemonPreview)`
 
     .pokemon-preview {
       display: none;
+    }
+  }
+
+  .pokemon-preview {
+    text-align: center;
+
+    img {
+      width: 10rem;
+    }
+
+    .pokemon-name {
+      text-transform: capitalize;
     }
   }
 `

@@ -10,7 +10,6 @@ const Pokedex = (props: any) => {
   return (
     <div className={props.className}>
       <PokemonSearch />
-      <br />
       <PokemonPreview />
     </div>
   )

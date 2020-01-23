@@ -25,8 +25,8 @@ const PokemonData = ({ className, pokemon, changeName }: PokemonDataProps) => {
           <AbilitiesList />
         </>
       ) : (
-        <div>
-          Pokemon data will be shown here
+        <div className="pokemon-data-will-be-shown">
+          Pokemon data will be shown here &nbsp;
           <span role="img" aria-label="smile">
             🙂
           </span>
@@ -41,10 +41,12 @@ export default styled(PokemonData)`
   border-radius: ${smallRadius};
   padding: 0.75rem;
 
-  input {
-    border: 1px solid #ddd;
-    border-radius: 0.25rem;
-    padding: 0.5rem;
-    width: 100%;
+  ${NameInput} {
+    margin-bottom: 0.5rem;
+  }
+
+  .pokemon-data-will-be-shown {
+    font-size: 0.85rem;
+    text-align: center;
   }
 `
