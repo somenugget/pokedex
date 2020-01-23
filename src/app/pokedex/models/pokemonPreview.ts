@@ -2,9 +2,10 @@ import { RematchDispatch } from '@rematch/core'
 
 type PokemonPreviewStore = {
   pokemon: string | null
+  isLoading: boolean
 }
 
-const initialState: PokemonPreviewStore = { pokemon: null }
+const initialState: PokemonPreviewStore = { pokemon: null, isLoading: false }
 
 export default {
   name: 'pokemonPreview',
@@ -19,14 +20,29 @@ export default {
         pokemon,
       }
     },
+    setIsLoading(
+      state: PokemonPreviewStore,
+      isLoading: boolean
+    ): PokemonPreviewStore {
+      return {
+        ...state,
+        isLoading,
+      }
+    },
   },
   effects: (dispatch: RematchDispatch) => ({
     loadPokemon(name: string) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-      // @ts-ignore
-      dispatch.pokemons.loadPokemon(name).then(() => {
-        dispatch.pokemonPreview.setPokemon(name)
-      })
+      dispatch.pokemonPreview.setIsLoading(true)
+
+      dispatch.pokemons
+        .loadPokemon(name)
+        // @ts-ignore
+        .then(() => {
+          dispatch.pokemonPreview.setPokemon(name)
+        })
+        .finally(() => {
+          dispatch.pokemonPreview.setIsLoading(false)
+        })
     },
   }),
 }
