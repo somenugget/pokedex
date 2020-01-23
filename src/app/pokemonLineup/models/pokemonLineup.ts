@@ -17,5 +17,16 @@ export default {
         lineup: [...new Set([...state.lineup, pokemonName])],
       }
     },
+    removePokemon(
+      state: PokemonLineupStore,
+      pokemonName: string
+    ): PokemonLineupStore {
+      return {
+        ...state,
+        lineup: state.lineup.filter(
+          (pokemonNameInLineup: string) => pokemonNameInLineup !== pokemonName
+        ),
+      }
+    },
   },
 }

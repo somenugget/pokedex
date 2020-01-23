@@ -8,6 +8,10 @@ const mapState = (state: any, { pokemon }: any) => ({
 
 const mapDispatch = (dispatch: any) => ({
   selectPokemon: dispatch.pokemonData.selectPokemon,
+  removePokemon: (pokemonName: string) => {
+    dispatch.pokemonLineup.removePokemon(pokemonName)
+    dispatch.pokemonData.selectPokemon(undefined)
+  },
 })
 
 export default connect(mapState, mapDispatch)(PokemonLineupItem)

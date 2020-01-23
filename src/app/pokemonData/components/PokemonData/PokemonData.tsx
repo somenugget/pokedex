@@ -15,16 +15,23 @@ type PokemonDataProps = {
 }
 
 const PokemonData = ({ className, pokemon, changeName }: PokemonDataProps) => {
-  if (!pokemon) {
-    return null
-  }
-
   return (
     <div className={className}>
-      <NameInput name={pokemon.name} changeName={changeName} />
+      {pokemon && pokemon.name ? (
+        <>
+          <NameInput name={pokemon.name} changeName={changeName} />
 
-      <AbilitiesSelect />
-      <AbilitiesList />
+          <AbilitiesSelect />
+          <AbilitiesList />
+        </>
+      ) : (
+        <div>
+          Pokemon data will be shown here
+          <span role="img" aria-label="smile">
+            🙂
+          </span>
+        </div>
+      )}
     </div>
   )
 }

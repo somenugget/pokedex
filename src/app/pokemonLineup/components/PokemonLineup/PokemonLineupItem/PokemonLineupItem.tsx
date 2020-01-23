@@ -6,6 +6,7 @@ import { Pokemon } from 'app/models/pokemons'
 type PokemonLineupItemProps = {
   pokemon: Pokemon
   selectPokemon: (pokemonName: string) => void
+  removePokemon: (pokemonName: string) => void
   className?: string
   isSelected?: boolean
 }
@@ -13,12 +14,21 @@ type PokemonLineupItemProps = {
 const PokemonLineupItem = ({
   pokemon,
   selectPokemon,
+  removePokemon,
   className,
   isSelected,
 }: PokemonLineupItemProps) => {
   const selectCurrentPokemon = useCallback(() => {
     selectPokemon(pokemon.name)
   }, [pokemon.name])
+
+  const removeCurrentPokemon = useCallback(
+    (e) => {
+      e.stopPropagation()
+      removePokemon(pokemon.name)
+    },
+    [pokemon.name]
+  )
 
   return (
     <div
@@ -27,6 +37,10 @@ const PokemonLineupItem = ({
     >
       <img src={pokemon.sprites.front_default} alt={pokemon.name} />
       <h5>{pokemon.name}</h5>
+
+      <button onClick={removeCurrentPokemon} type="button">
+        remove
+      </button>
     </div>
   )
 }
